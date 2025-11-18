@@ -41,7 +41,7 @@ bash_miniproject/
 ### Software
 - Bash shell (Linux, macOS, or WSL on Windows)
 - Git and GitHub account
-- Basic Unix tools: `grep`, `awk`, `cut`, `sort`, `uniq`, `wc`
+- Basic Unix tools: `grep`, `cut`, `sort`, `uniq`, `wc`
 
 ### Data Files
 The `Data/` directory contains:
@@ -122,7 +122,7 @@ The `Data/` directory contains:
 
 | Script Name | Purpose | Key Commands Used |
 |-------------|---------|-------------------|
-| `extract_headers.sh` | [TODO] | grep, awk |
+| `extract_headers.sh` | [TODO] | grep|
 | `longest_sequence.sh` | [TODO] | grep, sort, head |
 | [TODO: Add all scripts] | | |
 
