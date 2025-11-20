@@ -166,11 +166,11 @@ The `Data/` directory contains:
 
 [TODO: Document any challenges you faced and how you solved them. This shows your problem-solving process. Example:]
 
-**Challenge 1**: [TODO: Describe a problem you encountered]
-**Solution**: [TODO: Describe how you solved it]
+**Challenge 1**: I did'nt know the type of backup file for the editor I used (Nano)
+**Solution**: I went online and found out that if you enable the back up option when opening nano using a flag -f, it creates a backup file starting with a .filename~, so I added it in the gitignore file.
 
-**Challenge 2**: [TODO]
-**Solution**: [TODO]
+**Challenge 2**: After pushing my repository, git online wasn't showing the folders for results and scripts
+**Solution**: I went on google, apparently its a problem if the directories are empty, so the solution suggested was to create a .gitkeep file in each of the folders and I also used the flag -f to override the gitignore for the results directory.
 
 ---
 
