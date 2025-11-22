@@ -5,7 +5,7 @@
 **Student ID**: MB300-0004/2024
 **Course**: PUB 3127 - Computing for Biologists
 **Date Started**: 11/20/2025
-**Date Completed**: [TODO: Date you completed the project]
+**Date Completed**: 11/22/2025
 
 ---
 
@@ -21,19 +21,33 @@ This project analyzes genomic scaffold data and protein database records using b
 ## Repository Contents
 
 ```
-bash_miniproject/
-├── Data/                          # Input data files
-│   ├── IP-004_S38_L001_scaffolds.fasta
-│   └── humchrx.txt
-├── scripts/                       # Bash scripts for analysis
-│   └── [TODO: List your scripts here as you create them]
-├── results/                       # Output files from analyses
-│   └── [TODO: List your result files here as you generate them]
-├── .gitignore                     # Git ignore rules
-├── ASSIGNMENT.md                  # Assignment instructions
-└── README.md                      # This file
+└── bash_miniproject
+    ├── ASSIGNMENT.md
+    ├── Data
+    │   ├── IP-004_S38_L001_scaffolds.fasta
+    │   └── humchrx.txt
+    ├── README.md
+    ├── results
+    │   ├── analysis_summary.txt
+    │   ├── filtered_sequences.txt
+    │   ├── gene_names_sorted.txt
+    │   ├── high_quality_scaffolds.txt
+    │   ├── longest_sequence.txt
+    │   ├── protein_count.txt
+    │   ├── protein_search_results.txt
+    │   ├── sequence_count.txt
+    │   └── sequence_ids.txt
+    └── scripts
+        ├── extract_genes.sh
+        ├── extract_headers.sh
+        ├── filter_by_length.sh
+        ├── high_quality_scaffolds.sh
+        ├── longest_sequence.sh
+        ├── protein_entry_count.sh
+        ├── run_analysis.sh
+        ├── search_proteins.sh
+        └── sequence_count.sh
 ```
-
 ---
 
 ## Requirements
@@ -56,7 +70,7 @@ The `Data/` directory contains:
 ### Setup
 1. Clone this repository:
    ```bash
-   git clone [YOUR_REPO_URL]
+   git clone https://github.com/KhumboPute/bash_miniproject.git
    cd bash_miniproject
    ```
 
@@ -66,8 +80,6 @@ The `Data/` directory contains:
    ```
 
 ### Running the Scripts
-
-[TODO: Add detailed instructions for each script as you create them. Example format below:]
 
 #### Script 1: Extract Headers
 ```bash
@@ -111,7 +123,20 @@ The `Data/` directory contains:
 **Purpose**: Searches for proteins matching a keyword
 **Output**: `results/protein_search_results.txt` - Matching protein entries
 
-[TODO: Update the purpose and output descriptions based on your actual implementations]
+#### Script 7: Protein entry count
+```bash
+./scripts/protein_entry_count.sh
+```
+**Purpose**:Count the number of proteins from the protein database
+**Output**:`results/protein_count.txt`- Number of proteins in the database
+
+#### Script 8: Sequence Count
+```bash
+./scripts/sequence_count.sh
+```
+**Purpose**:Count the number of sequences in the FASTA file
+**Output**:`results/sequence_count.txt`- Number of DNA sequences in the FASTA file
+
 
 ### Running the Master Script
 ```bash
@@ -122,40 +147,35 @@ The `Data/` directory contains:
 - All result files from individual scripts
 - `results/analysis_summary.txt` - Summary of all analyses with counts and timestamp
 
-[TODO: Verify the above descriptions match your actual implementation]
-
 ---
 
 ## Analysis Results Summary
 
-[TODO: Fill this section in after completing your analyses. Answer these questions:]
-
 ### FASTA File Analysis
-- **Total number of sequences**: [TODO]
-- **Longest sequence**: [TODO: NODE_X with length and coverage]
-- **Number of sequences with length >= 5000**: [TODO]
-- **Number of high-quality scaffolds** (length >= 10000, coverage >= 5.0): [TODO]
+- **Total number of sequences**: 35079
+- **Longest sequence**: NODE_1
+- **Number of sequences with length >= 5000**: 283
+- **Number of high-quality scaffolds** (length >= 10000, coverage >= 5.0): 33
 
 ### Protein Database Analysis
-- **Total protein entries**: [TODO]
-- **Number of unique genes**: [TODO]
-- **Example protein search result** (e.g., for "kinase"): [TODO: number of matches]
+- **Total protein entries**: 890
+- **Number of unique genes**: 888
+- **Example protein search result** (e.g., for "kinase"): 38
 
 ### Key Findings
-[TODO: Write 2-3 sentences about interesting observations from your analysis]
-
+- How fast the code completed my intended task, the code took too long to write but it executed in seconds
+- How to read through complicated information to extract what you want
+- Breaking down huge problems into smaller ones to accomplish the task
 ---
 
 ## Scripts Description
-
-[TODO: Provide a brief description of each script. Example format below:]
 
 | Script Name | Purpose | Key Commands Used |
 |-------------|---------|-------------------|
 | `extract_headers.sh` | Extract NODE identifiers from FASTA file | grep, cut |
 | `longest_sequence.sh` | Find the scaffold with the longest sequence | grep, sort, head |
-| `filter_by_length.sh` | Filter scaffolds by minimum length | grep, cut, [loops] |
-| `high_quality_scaffolds.sh` | Identify high-quality scaffolds | grep, cut, [conditionals] |
+| `filter_by_length.sh` | Filter scaffolds by minimum length | grep, cut, for,if |
+| `high_quality_scaffolds.sh` | Identify high-quality scaffolds | grep, cut, for,if |
 | `extract_genes.sh` | Extract unique gene names from protein file | cut, sort, uniq |
 | `search_proteins.sh` | Search for proteins by keyword | grep |
 | `run_analysis.sh` | Master script that runs all analyses | [calls all other scripts] |
@@ -164,23 +184,24 @@ The `Data/` directory contains:
 
 ## Challenges and Solutions
 
-[TODO: Document any challenges you faced and how you solved them. This shows your problem-solving process. Example:]
-
 **Challenge 1**: I did'nt know the type of backup file for the editor I used (Nano)
 **Solution**: I went online and found out that if you enable the back up option when opening nano using a flag -f, it creates a backup file starting with a .filename~, so I added it in the gitignore file.
 
 **Challenge 2**: After pushing my repository, git online wasn't showing the folders for results and scripts
 **Solution**: I went on google, apparently its a problem if the directories are empty, so the solution suggested was to create a .gitkeep file in each of the folders and I also used the flag -f to override the gitignore for the results directory.
 
+**Challenge 3**: Making comparisons using floats which is different from integers
+**Solution**: I googled the syntax for working with float when dealing with coverage
+
+**Challenge**: Handling errors using if statements
+**Solution**: I googled the structure then replaced the variables with  what I wanted
 ---
 
 ## What I Learned
-
-[TODO: Write a brief reflection (3-5 sentences) about what you learned from this project. Consider:]
-- New bash commands or concepts you learned
-- How command-line tools can be useful for bioinformatics
-- Any insights about version control with Git
-- How this project relates to your research interests
+- New bash commands or concepts you learned: Using command line arguments in scripts
+- How command-line tools can be useful for bioinformatics : Command line can help in dealing with large files
+- Any insights about version control with Git : I can make changes in my files while keeping the originals
+- How this project relates to your research interests: Probably I will deal with files from databases
 
 ---
 
@@ -199,6 +220,6 @@ This project is for educational purposes as part of PUB 3127 coursework.
 ---
 
 ## Acknowledgments
-- **Instructor**: [TODO: Your instructor's name]
-- **Institution**: [TODO: Your university/institution name]
+- **Instructor**: Dr. Kibet
+- **Institution**: Pan African University of Science, Technology and Innovation
 - Data sources: [Sequencing data and UniProt database]
